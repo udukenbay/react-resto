@@ -34,14 +34,10 @@ const mapStateToProps = (state) => {
     return {
         menuItems: state.menu
     }
-}
+};
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        menuLoaded: (newMenu) => {
-            dispatch(menuLoaded(newMenu))
-        }
-    }
-}
+const mapDispatchToProps = {
+    menuLoaded
+};
 
 export default WithRestoService()(connect(mapStateToProps, mapDispatchToProps)(MenuList));//композиция компонентов Высшего Порядка
