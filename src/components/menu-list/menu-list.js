@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import MenuListItem from '../menu-list-item';
 import {connect} from 'react-redux';
 import WithRestoService from '../hoc';
+import {menuLoaded} from '../../actions';
 
 import './menu-list.scss';
 
@@ -38,10 +39,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         menuLoaded: (newMenu) => {
-            dispatch({
-                type: 'MENU_LOADED',
-                payload: newMenu
-            })
+            dispatch(menuLoaded(newMenu))
         }
     }
 }
