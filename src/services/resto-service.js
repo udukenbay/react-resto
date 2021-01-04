@@ -1,5 +1,15 @@
 export default class RestoService {
-    getMenuItems() {
-        return [];
+    url = 'http://localhost:3004/menu';
+
+    getMenuItems = async () => {
+
+        const response = await fetch(this.url);
+
+        if (!response.ok){
+            throw new Error('Server Error');
+        }
+        
+        const result = await response.json();
+        return result;
     }
 }
